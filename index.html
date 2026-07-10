@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BarFlow — Squat Form Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wordmark">BAR<span>FLOW
+    </span></div>
+    <p class="tagline">Lateral-view squat form analysis — right in your browser</p>
+  </header>
+
+  <main>
+
+    <!-- STAGE 1: Upload -->
+    <section id="uploadStage" class="stage">
+      <label for="videoInput" class="dropzone" id="dropzone">
+        <div class="dropzone-icon">↑</div>
+        <div class="dropzone-text">Drop a squat video, or click to upload</div>
+        <div class="dropzone-sub">Lateral (side-on) view works best · MP4 or MOV</div>
+      </label>
+      <input type="file" id="videoInput" accept="video/*" hidden>
+      <p class="privacy-note">Processed entirely on your device. Nothing is uploaded anywhere.</p>
+    </section>
+
+    <!-- STAGE 2: Loading model -->
+    <section id="loadingStage" class="stage hidden">
+      <div class="loader-ring"></div>
+      <p class="loading-text" id="loadingText">Loading pose model…</p>
+    </section>
+
+    <!-- STAGE 3: Analysis in progress -->
+    <section id="analysisStage" class="stage hidden">
+      <div class="video-wrap">
+        <video id="sourceVideo" playsinline muted></video>
+        <canvas id="overlayCanvas"></canvas>
+        <div class="live-readout" id="liveReadout">
+          <div class="live-line" id="liveTorso">Torso: Waiting</div>
+          <div class="live-line" id="liveHip">Hip Hinge: Waiting</div>
+          <div class="live-line" id="liveDepth">Depth: Waiting</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 4: Results scoreboard -->
+    <section id="resultsStage" class="stage hidden">
+      <div class="scoreboard">
+        <div class="scoreboard-header">FORM SUMMARY</div>
+        <div class="overall-score">
+          <div class="overall-number" id="overallNumber">--</div>
+          <div class="overall-label">OVERALL / 100</div>
+        </div>
+        <div class="sub-scores">
+          <div class="sub-score" id="torsoBlock">
+            <div class="sub-score-label">TORSO</div>
+            <div class="sub-score-number" id="torsoNumber">--</div>
+            <div class="sub-score-weight">40% weight</div>
+          </div>
+          <div class="sub-score" id="hipBlock">
+            <div class="sub-score-label">HIP HINGE</div>
+            <div class="sub-score-number" id="hipNumber">--</div>
+            <div class="sub-score-weight">35% weight</div>
+          </div>
+          <div class="sub-score" id="depthBlock">
+            <div class="sub-score-label">DEPTH</div>
+            <div class="sub-score-number" id="depthNumber">--</div>
+            <div class="sub-score-weight">25% weight</div>
+          </div>
+        </div>
+        <p class="deepest-note" id="deepestNote"></p>
+      </div>
+      <button class="btn-primary" id="tryAnotherBtn">Analyze Another Video</button>
+    </section>
+
+    <!-- Error state -->
+    <section id="errorStage" class="stage hidden">
+      <p class="error-text" id="errorText">Something went wrong.</p>
+      <button class="btn-primary" id="errorRetryBtn">Try Again</button>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/jordanmargolis/BarPath" target="_blank" rel="noopener">View the source on GitHub</a>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
