@@ -36,7 +36,3 @@ python3 -m http.server
 ```
 
 Then visit `http://localhost:8000` in your browser.
-
-## License
-
-[Add your license here]
