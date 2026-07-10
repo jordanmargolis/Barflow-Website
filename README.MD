@@ -1,8 +1,8 @@
 # BarFlow
 
-Computer vision squat form analysis — scores torso, hip hinge, and depth from video using MediaPipe pose detection.
+Computer vision squat form analysis. Scores torso, hip hinge, and depth from video using MediaPipe pose detection.
 
-**Try it live: [your GitHub Pages link goes here]**
+**Try it live: https://jordanmargolis.github.io/Barflow-Website/**
 
 ## How to Use
 
