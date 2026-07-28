@@ -69,6 +69,9 @@ const deepestNote = document.getElementById("deepestNote");
 const tryAnotherBtn = document.getElementById("tryAnotherBtn");
 const errorRetryBtn = document.getElementById("errorRetryBtn");
 const errorText = document.getElementById("errorText");
+const demoBtn = document.getElementById("demoBtn");
+
+const DEMO_VIDEO_URL = "assets/demo-squat.mp4";
 
 let poseLandmarker = null;
 let drawingUtils = null;
@@ -288,10 +291,7 @@ async function initPoseLandmarker() {
 // Video handling
 // ==============================
 
-videoInput.addEventListener("change", async (event) => {
-  const file = event.target.files[0];
-  if (!file) return;
-
+async function loadVideoAndAnalyze(url) {
   // Reset per-video state
   torsoScores = [];
   hipScores = [];
@@ -304,7 +304,6 @@ videoInput.addEventListener("change", async (event) => {
       await initPoseLandmarker();
     }
 
-    const url = URL.createObjectURL(file);
     sourceVideo.src = url;
 
     sourceVideo.onloadedmetadata = () => {
@@ -317,12 +316,26 @@ videoInput.addEventListener("change", async (event) => {
     sourceVideo.onended = () => {
       finishAnalysis();
     };
+
+    sourceVideo.onerror = () => {
+      showError("Couldn't load that video. Check the file and try again.");
+    };
   } catch (err) {
     console.error(err);
     showError(
       "Couldn't load the pose model or video. Check your connection and try again."
     );
   }
+}
+
+videoInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  loadVideoAndAnalyze(URL.createObjectURL(file));
+});
+
+demoBtn.addEventListener("click", () => {
+  loadVideoAndAnalyze(DEMO_VIDEO_URL);
 });
 
 function renderLoop() {
