@@ -202,23 +202,23 @@ function classifyScore(score) {
 
 const TORSO_TIPS = {
   warn:
-    "Your torso is leaning ahead of your shin angle on some reps. Cue yourself to keep your chest up and brace harder through the descent — think 'proud chest' rather than folding forward at the hips. Working ankle dorsiflexion (wall ankle stretch, knee-to-wall drill) and squatting to a box to reinforce trunk position can help build this habit over time.",
+    "Your torso is leaning ahead of your shin angle on some reps. Cue yourself to keep your chest up and brace harder through the descent, thinking 'proud chest' rather than folding forward at the hips. Working ankle dorsiflexion (wall ankle stretch, knee-to-wall drill) and squatting to a box to reinforce trunk position can help build this habit over time.",
   bad:
-    "Your torso is folding forward well past your shin angle — normally these two should stay close to parallel through the descent, but here the gap between them is large, meaning your chest is dropping toward your knees instead of staying upright. Drop the weight and focus on rebuilding this pattern before loading it again. This is often an ankle mobility limitation forcing you to lean forward to stay balanced over midfoot. Work on ankle dorsiflexion (wall stretch, knee-to-wall drill), try a small heel wedge or plate under your heels, and practice box squats or goblet squats to groove a more upright torso."
+    "Your torso is folding forward well past your shin angle. Normally these two should stay close to parallel through the descent, but here the gap between them is large, meaning your chest is dropping toward your knees instead of staying upright. Drop the weight and focus on rebuilding this pattern before loading it again. This is often an ankle mobility limitation forcing you to lean forward to stay balanced over midfoot. Work on ankle dorsiflexion (wall stretch, knee-to-wall drill), try a small heel wedge or plate under your heels, and practice box squats or goblet squats to groove a more upright torso."
 };
 
 const HIP_TIPS = {
   warn:
     "Your hips aren't traveling back enough as you initiate the descent. Cue 'sit back' before you sit down — picture reaching your hips toward a wall behind you before bending the knees. Romanian deadlifts and kettlebell good mornings are good accessory movements to groove that hip-back pattern.",
   bad:
-    "This is closer to a leg-press pattern than a squat — your hips barely moved backward from where they started, and they're staying nearly stacked above your ankles instead of hinging back behind them. Drop the weight and rebuild the pattern first: practice bodyweight box squats focusing on pushing your hips back to touch the box, and add Romanian deadlifts or kettlebell good mornings to reinforce the hip hinge before adding load back."
+    "This is closer to a leg-press pattern than a squat: your hips barely moved backward from where they started, and they're staying nearly stacked above your ankles instead of hinging back behind them. Drop the weight and rebuild the pattern first: practice bodyweight box squats focusing on pushing your hips back to touch the box, and add Romanian deadlifts or kettlebell good mornings to reinforce the hip hinge before adding load back."
 };
 
 const DEPTH_TIPS = {
   warn:
     "You're close to parallel but not quite there. A few more degrees of hip and knee flexion gets you to full depth. Ankle dorsiflexion stretches (weighted wall stretch) and hip mobility work like 90/90 stretches or deep squat holds will help you earn that extra range over time.",
   bad:
-    "You're stopping well short of parallel — your deepest knee angle stayed well above the 90° range that marks a full squat, meaning you're cutting the rep short of true depth. Drop the weight and work on mobility rather than forcing depth with poor mechanics — goblet squat holds at your end range, couch stretch for hip flexors, and weighted ankle dorsiflexion stretches will help you earn that range of motion safely."
+    "You're stopping well short of parallel: your deepest knee angle stayed well above the 90° range that marks a full squat, meaning you're cutting the rep short of true depth. Drop the weight and work on mobility rather than forcing depth with poor mechanics. Goblet squat holds at your end range, couch stretch for hip flexors, and weighted ankle dorsiflexion stretches will help you earn that range of motion safely."
 };
 
 function buildRecommendations(finalTorso, finalHip, finalDepth) {
@@ -233,7 +233,7 @@ function buildRecommendations(finalTorso, finalHip, finalDepth) {
 
   if (tips.length === 0) {
     tips.push(
-      "Solid rep — torso angle, hip hinge, and depth all look on target. Keep reinforcing this pattern as you add load."
+      "Solid rep: torso angle, hip hinge, and depth all look on target. Keep reinforcing this pattern as you add load."
     );
   }
 
